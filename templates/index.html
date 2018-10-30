@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Welcome to Ireland</h3>
+
+{% for task in tasks %}
+<div class="row">
+  <div class="card col s6">
+    <div class="card-image waves-effect waves-block waves-light">
+      <!--<img class="activator" src="images/office.jpg">-->
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{task.spot_name}}<i class="material-icons right">more_vert</i></span>
+      <p>{{task.spot_place}},{{task.county}}</p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">{{task.spot_name}}<i class="material-icons right">close</i></span>
+      <p>{{task.description}}</p>
+    </div>
+  </div>
+  </div>
+  {% endfor %}
+
+<!--{% for task in tasks %}-->
+<!--    <p>{{task.spot_name}}</p>-->
+<!--    {% endfor %}-->
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<h3>Add a Place</h3>
+
+<div class="row">
+  <form  method="POST" class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <input placeholder="spot name" name="spot_name" id="spot_name" type="text" class="validate">
+        <label for="spot_name">Spot Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input placeholder="place name" name="spot_place" id="place_name" type="text" class="validate">
+        <label for="place_name">Place Name</label>
+      </div>
+    </div>
+    <div class="row">
+    <div class="col s12">
+ 
+    <label>Select County</label>
+    <select class="browser-default" name="county">
+    <option value="" disabled selected>Choose county</option>
+    
+    {% for co in county %}
+    <option value={{co.county_id}}>{{co.county_name}}</option>
+    {% endfor %}
+    
+    
+    </select>
+    </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input placeholder="Give a Description" id="spot_disciptn" name="description" type="text" class="validate">
+        <label for="spot_disciptn">Spot Description</label>
+      </div>
+    </div>
+    <div class="row">
+    <div class="input-field col s12">
+    <label for="rating">Give a rating</label><br>
+    <p class="range-field">
+      <input type="range" id="rating" name="rating" min="0" max="5" />
+    </p>
+    </div>
+    </div>
+   
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="email" type="email" class="validate">
+        <label for="email">Email</label>
+      </div>
+    </div>
+    
+     <div class="row">
+      <div class="input-field col s12">
+                <button class="btn waves-effect waves-light" type="submit">Add the Spot
+    <i class="material-icons right">chevron_right</i>
+  </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
