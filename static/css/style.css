@@ -1,0 +1,24 @@
+.brand-logo{
+    color:#2eb82e;
+    font-family: 'Marck Script', cursive;
+    
+}
+#logo_id{
+    padding-top: 5px;
+    font-size: 50px;
+}
+
+h3{
+    color:#2eb82e;
+    font-family: 'Dancing Script', cursive;
+}
+body{
+    background-color:#d9e6b2;
+}
+.container{
+    padding-top: 150px;
+    justify-content: center;
+}
+nav{
+    height: 100px;
+}

@@ -1,19 +1,22 @@
 {% extends 'base.html' %} 
 {% block content %}
 <div class="container">
-<h3>Add a Place</h3>
- 
+<h3>Edit the Spot</h3>
+
 <div class="row">
+  
   <form  method="POST" class="col s12" enctype='multipart/form-data'>
     <div class="row">
       <div class="input-field col s12">
-        <input placeholder="spot name" name="spot_name" id="spot_name" type="text" class="validate">
+        <input placeholder="spot name" name="spot_name" id="spot_name" type="text" class="validate" value="{{the_spot.spot_name}}">
         <label for="spot_name">Spot Name</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input placeholder="place name" name="spot_place" id="place_name" type="text" class="validate">
+        
+        <input placeholder="place name" name="spot_place" id="place_name" type="text" class="validate" value="{{the_spot.spot_place}}">
+        
         <label for="place_name">Place Name</label>
       </div>
     </div>
@@ -25,8 +28,13 @@
     <option value="" disabled selected>Choose county</option>
     
     {% for county in county_names %}
-    <option value={{county}}>{{county}}</option>
+      {% if cat == the_spot.county_names %}
+       <option value="{{ county }}" selected>{{ county }}</option>
+      {% else %}
+       <option value={{county}}>{{county}}</option>
+      {% endif %}
     {% endfor %}
+    
     
     
     </select>
@@ -34,7 +42,7 @@
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input placeholder="Give a Description" id="spot_disciptn" name="description" type="text" class="validate">
+        <input placeholder="Give a Description" id="spot_disciptn" name="description" type="text" class="validate" value="{{the_spot.description}}">
         <label for="spot_disciptn">Spot Description</label>
       </div>
     </div>
@@ -42,17 +50,11 @@
     <div class="input-field col s12">
     <label for="rating">Give a rating</label><br>
     <p class="range-field">
-      <input type="range" id="rating" name="rating" min="0" max="5" />
+      <input type="range" id="rating" name="rating" min="0" max="5"  value="{{the_spot.rating}}"/>
     </p>
     </div>
     </div>
    
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="email" type="email" name="email" class="validate">
-        <label for="email">Email</label>
-      </div>
-    </div>
     <div class="row">
             <div class="file-field input-field">
                 <div class="btn">
@@ -61,8 +63,9 @@
                 </div>
                 <div class="file-path-wrapper">
                 <input class="file-path validate" type="text">
-                </div>
+                 </div>
             </div>
+            <img class="materialboxed" height="200" width="200" src="{{the_spot.image}}">
         </div>
      <div class="row">
       <div class="input-field col s12">
