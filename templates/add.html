@@ -1,19 +1,19 @@
 {% extends 'base.html' %} 
 {% block content %}
-<div class="container">
+<div class="container center">
 <h3>Add a Place</h3>
  
 <div class="row">
   <form  method="POST" class="col s12" enctype='multipart/form-data'>
     <div class="row">
       <div class="input-field col s12">
-        <input placeholder="spot name" name="spot_name" id="spot_name" type="text" class="validate">
+        <input placeholder="spot name" name="spot_name" id="spot_name" type="text" class="validate" required>
         <label for="spot_name">Spot Name</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input placeholder="place name" name="spot_place" id="place_name" type="text" class="validate">
+        <input placeholder="place name" name="spot_place" id="place_name" type="text" class="validate" required>
         <label for="place_name">Place Name</label>
       </div>
     </div>
@@ -34,10 +34,21 @@
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input placeholder="Give a Description" id="spot_disciptn" name="description" type="text" class="validate">
+        <input placeholder="Give a Description" id="spot_disciptn" name="description" type="text" class="validate" required>
         <label for="spot_disciptn">Spot Description</label>
       </div>
     </div>
+    <div class="row">
+    <div class="input-field col s12">
+    <select multiple name="things_todo">
+      <option value="" disabled selected>Choose things to do</option>
+      {% for t in todo %}
+      <option value="{{t.todo_name}}">{{t.todo_name}}</option>
+      {% endfor %}
+    </select>
+    <label>Select things to do in the Spot</label>
+  </div>
+  </div>
     <div class="row">
     <div class="input-field col s12">
     <label for="rating">Give a rating</label><br>
@@ -49,7 +60,7 @@
    
     <div class="row">
       <div class="input-field col s12">
-        <input id="email" type="email" name="email" class="validate">
+        <input id="email" type="email" name="email" class="validate" required>
         <label for="email">Email</label>
       </div>
     </div>

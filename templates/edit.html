@@ -1,6 +1,6 @@
 {% extends 'base.html' %} 
 {% block content %}
-<div class="container">
+<div class="container center">
 <h3>Edit the Spot</h3>
 
 <div class="row">
@@ -28,7 +28,7 @@
     <option value="" disabled selected>Choose county</option>
     
     {% for county in county_names %}
-      {% if cat == the_spot.county_names %}
+      {% if county == the_spot.county %}
        <option value="{{ county }}" selected>{{ county }}</option>
       {% else %}
        <option value={{county}}>{{county}}</option>
@@ -46,6 +46,19 @@
         <label for="spot_disciptn">Spot Description</label>
       </div>
     </div>
+    <div class="row">
+    <div class="input-field col s12">
+    <select multiple name="things_todo">
+      <option value="" disabled selected>Choose things to do</option>
+      {% for t in todo %}
+      
+       <option value="{{ t.todo_name}}" {% if t.todo_name in the_spot.things_todo %}selected{% endif %}>{{ t.todo_name }}</option>
+      
+    {% endfor %}
+    </select>
+    <label>Select things to do in the Spot</label>
+  </div>
+  </div>
     <div class="row">
     <div class="input-field col s12">
     <label for="rating">Give a rating</label><br>

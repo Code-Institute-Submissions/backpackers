@@ -4,21 +4,120 @@
     
 }
 #logo_id{
-    padding-top: 5px;
+    margin-top:25px;
     font-size: 50px;
 }
 
+.nav-wrapper li a{
+    margin-top: 30px;
+    font-family: 'Marck Script', cursive;
+    font-size: 30px;
+    
+}
 h3{
     color:#2eb82e;
     font-family: 'Dancing Script', cursive;
 }
 body{
     background-color:#d9e6b2;
+    max-width: 100%
 }
 .container{
-    padding-top: 150px;
-    justify-content: center;
-}
+    /*width: 80%;*/
+    padding-top: 80px;
+    /*justify-content: center;*/
+    /*margin-left: 250px;*/
+    }
 nav{
+    height: 150px;
+    background-image: url('images/ireland.jpeg');
+    background-size: cover;
+    /*position: fixed;*/
+    z-index: 2;
+    /*max-width:100%*/
+    
+}
+#nav_img{
+    width:110px;
+    height: 120px;
+}
+#searchby_county {
+    display: inline-block;
+    width: 50%;
+    height:35px;
+}
+.search_icon{
+    display: inline-block;
+    width: 50%;
+    height:35px;
+}
+
+/*.search{*/
+/*   padding-top: 160px;  */
+/*}*/
+.card{
+    display: inline-block;
+    margin-right:5px;
+}
+.card .card-image img{
+    width:300px;
+}
+.card_img{
+    
+    height:200px;
+}
+.card_disc{
+    width:200px;
+    height: 200px;
+}
+
+@media only screen and (max-width: 479px) {
+    .card_para_place,.card_para_county{
+        display: none;
+    }
+    .card_edit{
+        display: none;
+    }
+    .card .card-title{
+        font-size: 10px;
+    }
+    .card .card-content i {
+     line-height: 0px; 
+     font-size: 10px;
+}
+#nav_img{
+    display: none;
+}
+#logo_id{
+    margin-left: 20px;
+    margin-top:15px;
+    font-size: 35px;
+}
+}
+@media only screen and (max-width: 850px) {
+
+       .card_para_place{
+        display: none;
+    }
+    .card_edit{
+        display: none;
+    }
+    .card .card-title{
+        font-size: 18px;
+    }
+    .card .card-content i {
+     line-height: 0px; 
+     font-size: 15px;
+}
+#nav_img{
+    width:90px;
     height: 100px;
+  
+}
+#logo_id{
+    margin-left: 20px;
+    margin-top:15px;
+    font-size: 40px;
+}
+    
 }

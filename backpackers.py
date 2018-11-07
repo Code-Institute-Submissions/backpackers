@@ -36,12 +36,15 @@ def home():
 def add():
     if request.method=="POST":
         
-        image = request.files['image']  
-        image_string = base64.b64encode(image.read()).decode("utf-8")
+        
+        
         form_values = request.form.to_dict()
-        form_values["image"] = "data:image/png;base64," + image_string
-        
-        
+        if "image" in request.files:
+            image = request.files['image']  
+            image_string = base64.b64encode(image.read()).decode("utf-8")
+            form_values["image"] = "data:image/png;base64," + image_string
+        form_values["things_todo"]=request.form.getlist('things_todo')
+        print(form_values)
         mongo.db.spots.insert_one(form_values)
         msg = Message("Spot Adding",
                   sender="backpackerssite1@gmail.com",
@@ -53,23 +56,28 @@ def add():
         
     else:
         # county=mongo.db.county.find()
-        return render_template("add.html", county_names=county_names)
+        todo=mongo.db.things_to_do.find()
+        return render_template("add.html", county_names=county_names,todo=todo)
 @app.route('/edit/<spot>/<spot_id>',methods=["GET","POST"])
 def edit(spot,spot_id):
     if request.method=="POST":
         form_values = request.form.to_dict()
-
         if "image" in request.files:
             image = request.files['image']  
             image_string = base64.b64encode(image.read()).decode("utf-8")
             form_values["image"] = "data:image/png;base64," + image_string
-        
+           
+        else:
+            old_spot = mongo.db['spots'].find_one({"_id": ObjectId(spot_id)})
+            form_values['image'] = old_spot['image']
+            form_values["things_todo"]=request.form.getlist('things_todo') 
         mongo.db[spot].update({"_id": ObjectId(spot_id)}, form_values)
         return redirect("/")
         
     else:
+        todo=mongo.db.things_to_do.find()
         the_spot =  mongo.db["spots"].find_one({"_id": ObjectId(spot_id)})
-        return render_template('edit.html', the_spot=the_spot,county_names=county_names)
+        return render_template('edit.html', the_spot=the_spot,county_names=county_names,todo=todo)
         
 @app.route("/")
 def index():

@@ -2,12 +2,12 @@
 
 {% block content %}
 
-<div class="row search">
-  <div class="card col s3">
+<div class="row search ">
+  <div class="col s6 right">
     <form>
       
    
-    <select class="browser-default" name="county">
+    <select id="searchby_county"class="browser-default" name="county">
     <option value="" disabled selected>Search By county</option>
     
     {% for county in county_names %}
@@ -15,33 +15,39 @@
     {% endfor %}
     
     
-    
- <input type="submit" value="Search"/>
+    </select><button class="btn waves-effect waves-light search_icon" type="submit" style="display: inline-block;">
+    <i class="material-icons ">search</i>
+  </button>
  </form>
+ </div>
 </div>
-<div class="container">
 <h3>Welcome to Ireland</h3>
+<div class="container center">
 
 
 
-<div class="row" >
+
+<div class="row col s5" >
+  
     {% for task in tasks %}
-  <div class="card col s5">
+  <div class="card medium">
     <div class="card-image waves-effect waves-block waves-light">
-      <img src="{{task.image}}">
+      <img class="card_img" src="{{task.image}}">
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">{{task.spot_name}}<i class="material-icons right">more_vert</i></span>
-      <p>{{task.spot_place}}</p>
-      <p>{{task.county}}</p>
-      <a href="{{url_for('edit',spot='spots', spot_id=task._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>
+      <span class="card-title activator">{{task.spot_name}} <i class="material-icons right">more_vert</i></span>
+      <p class="card_para_place">{{task.spot_place}}</p>
+      <p class="card_para_county">{{task.county}}</p>
+      <a href="{{url_for('edit',spot='spots', spot_id=task._id)}}" class="waves-effect waves-light btn btn_small blue card_edit">Edit</a>
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">{{task.spot_name}}<i class="material-icons right">close</i></span>
+      {%for tag in task.things_todo%}
+        <div class="chip">{{tag}}</div>
+        {% endfor %}
+      <span class="card-title grey-text text-darken-4 ">{{task.spot_name}}<i class="material-icons right">close</i></span>
       <p>{{task.description}}</p>
     </div>
   </div>
-   
   {% endfor %}
   </div>
   </div>
