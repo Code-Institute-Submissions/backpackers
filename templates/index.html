@@ -7,7 +7,7 @@
     <form>
       
    
-    <select id="searchby_county"class="browser-default" name="county">
+    <select id="searchby_county" class="browser-default" name="county">
     <option value="" disabled selected>Search By county</option>
     
     {% for county in county_names %}
@@ -16,8 +16,19 @@
     
     
     </select><button class="btn waves-effect waves-light search_icon" type="submit" style="display: inline-block;">
+      
     <i class="material-icons ">search</i>
   </button>
+  <!--<ul class="collapsible" id="searchby_county">-->
+  <!--  <li>-->
+  <!--    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Search By county</div>-->
+  <!--    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>-->
+  <!--  </li>-->
+  <!--  <li>-->
+  <!--    <div class="collapsible-header"><i class="material-icons">place</i>Second</div>-->
+  <!--    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>-->
+  <!--  </li>-->
+  <!--  </ul>-->
  </form>
  </div>
 </div>

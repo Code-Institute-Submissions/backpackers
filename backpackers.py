@@ -32,11 +32,28 @@ def home():
         else:
             tasks = mongo.db.spots.find()
         return render_template("index.html",tasks=tasks,county_names=county_names)
+        
+        
+@app.route('/find_spot',methods=["GET","POST"])    
+def find():
+    if request.method=="POST":
+        if "county" or "spot_name" or "spot_place" or "rating" in request.form:
+            print(request.form["spot_place"]);
+            
+            tasks=mongo.db.spots.find({"county": request.form["county"], "spot_name": {'$regex': request.form["spot_name"].capitalize()},"spot_place" :request.form["spot_place"]})
+            # tasks=mongo.db.spots.find({"county": request.form["county"],"spot_name": {'$regex': request.form["spot_name"].capitalize()},"spot_place":request.form["spot_place"],"rating":request.form["rating"]})
+        else:
+            tasks = mongo.db.spots.find()
+        return render_template("index.html",tasks=tasks,county_names=county_names)
+        
+    else:
+        todo=mongo.db.things_to_do.find()
+        return render_template("find.html", county_names=county_names,todo=todo)
+    
+        
 @app.route('/add_spot',methods=["GET","POST"])
 def add():
     if request.method=="POST":
-        
-        
         
         form_values = request.form.to_dict()
         if "image" in request.files:
