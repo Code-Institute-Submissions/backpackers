@@ -5,6 +5,7 @@ from flask_mail import Mail
 from flask_mail import Message
 from bson.objectid import ObjectId
 from base64 import b64encode
+from werkzeug.datastructures import ImmutableMultiDict
 import base64
 app = Flask(__name__)
 
@@ -37,14 +38,49 @@ def home():
 @app.route('/find_spot',methods=["GET","POST"])    
 def find():
     if request.method=="POST":
-        if "county" or "spot_name" or "spot_place" or "rating" in request.form:
-            print(request.form["spot_place"]);
+
+        query_obj = {}
+        
+        
+        if "spot_name" in request.form and request.form['spot_name'] != "":
+            query_obj["spot_name"] = {'$regex': request.form["spot_name"]}
             
-            tasks=mongo.db.spots.find({"county": request.form["county"], "spot_name": {'$regex': request.form["spot_name"].capitalize()},"spot_place" :request.form["spot_place"]})
+
+        if "spot_place" in request.form and request.form['spot_place'] != "":
+            query_obj["spot_place"] = {'$regex': request.form["spot_place"]}
+
+        if "county" in request.form:
+            query_obj["county"] = request.form["county"]
+            
+        if "rating" in request.form and request.form['rating'] != "":
+            query_obj["rating"] = request.form["rating"]
+        # if "things_todo" in request.form:
+        #     query_obj['things_todo'] = request.form.getlist('things_todo')
+            
+            
+            
+
+        # print(query_obj)
+        tasks = mongo.db.spots.find(query_obj)
+        print(query_obj)
+        print(tasks)
+        
+        # for item in things_obj["things_todo"]:
+            
+        # if "county" or "spot_name" or "spot_place" or "rating" in request.form:
+        #     print(request.form["spot_place"]);
+            
+        #     search_options = request.form
+        #     search_options.to_dict(flat=False)
+        #     print(search_options)
+            
+            # tasks=mongo.db.spots.find({"county": request.form["county"], "spot_name": {'$regex': request.form["spot_name"].capitalize()},"spot_place" :request.form["spot_place"]})
+            # print(tasks)
             # tasks=mongo.db.spots.find({"county": request.form["county"],"spot_name": {'$regex': request.form["spot_name"].capitalize()},"spot_place":request.form["spot_place"],"rating":request.form["rating"]})
-        else:
-            tasks = mongo.db.spots.find()
+        # else:
+        #     tasks = mongo.db.spots.find()
         return render_template("index.html",tasks=tasks,county_names=county_names)
+        # return("hi")
         
     else:
         todo=mongo.db.things_to_do.find()

@@ -8,10 +8,11 @@
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="css/hover-min.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Marck+Script|Open+Sans" rel="stylesheet">
+     <link rel="stylesheet" href="{{url_for('static', filename='css/hover.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 
     <title>Document</title>
 </head>
@@ -34,11 +35,13 @@
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
                     <li><a href="{{ url_for('add') }}">Add a Spot</a></li>
+                    <li><a href="{{ url_for('find') }}">Find Spot</a></li>
                     
                 </ul>
             </div>
         </nav>
     </header>
+    <main>
     <content>
 
     
@@ -47,25 +50,25 @@
     
     </content>
     
-    
+    </main>
      <footer class="page-footer">
           <div class="container footer-container">
             <div class="row">
               <div class="col l6 s12">
-                <h5 class="white-text">Backpackers</h5>
+                <h4>Backpackers</h5>
                 <p class="grey-text text-lighten-4">Helps to find Spots of Ireland also you can share Spots</p>
               </div>
               <div class="col l4 offset-l2 s12">
                 
-                    <h5 class="footer-headding">Follow Us</h5>
-                    <a class="footer_social hvr-pop" href="#"><i class="fab fa-facebook-square"></i></a>
-                    <a class="footer_social hvr-pop" href="#"><i class="fab fa-twitter-square"></i></a>
-                    <a class="footer_social hvr-pop" href="#"> <i class="fab fa-instagram"></i><br /></a><br /><br />
+                    
+                    <a class="footer_social hvr-pop" href="https://www.facebook.com" target="blank"><i class="fab fa-facebook-square"></i></a>
+                    <a class="footer_social hvr-pop" href="https://twitter.com/" target="blank"><i class="fab fa-twitter-square"></i></a>
+                    <a class="footer_social hvr-pop" href="https://www.instagram.com/?hl=en" target="blank"> <i class="fab fa-instagram"></i><br /></a><br /><br />
                     
                
               </div>
             </div>
-            © 2014 Copyright Text
+            <p>© 2014 Copyright Text</p>
           </div>
           
         </footer>

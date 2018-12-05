@@ -17,21 +17,36 @@
 h3{
     color:#2eb82e;
     font-family: 'Dancing Script', cursive;
+    font-weight: bold;
 }
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+select{
+    background-color: #d9e6b2;
+}
 
-  main {
+main {
     flex: 1 0 auto;
   }
+#welcome{
+    text-align: center;
+    font-family: 'Lobster', cursive;
+}
+.county_select label{
+    color:#2eb82e;
+    font-weight: bold;
+    text-align: left;
+}
+.input-field label{
+    color:#2eb82e;
+    font-weight: bold;
+}
       
 body{
     background-color:#d9e6b2;
-    /*background-image: url('images/wooden-background.jpg');*/
-    max-width: 100%
+   
+    max-width: 100%;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 .container{
     /*width: 80%;*/
@@ -40,8 +55,8 @@ body{
     /*margin-left: 250px;*/
     }
 nav{
-    height: 150px;
-    background-image: url('images/bodybg.jpg');
+    height: 200px;
+    background-image: url('images/cliffs-of-moher.jpg');
     background-size: cover;
     /*position: fixed;*/
     z-index: 2;
@@ -81,13 +96,22 @@ nav{
     width:200px;
     height: 200px;
 }
+content{
+    /*padding-bottom: 200px;*/
+}
 footer{
-    background-image: url('images/bodybg.jpg');
+    /*margin-top: 290px;*/
+    color: #006600;
+    background-image: url('images/footr.jpg');
+    background-size: cover;
+    font-family: 'Marck Script', cursive;
      
 }
+
 .footer-container{
-    padding-top: 30px;
-   padding-bottom: 0px
+    padding-top: 10px;
+   /*position: relative;*/
+   /*height:400px;*/
 }
 body {
     display: flex;
@@ -99,10 +123,16 @@ body {
     flex: 1 0 auto;
   }
 .footer_social {
-    color: Orange;
+    color: #006600;
     font-size: 40px;
     padding: 5px;
     padding-top:10px;
+}
+footer p{
+    font-size:20px;
+}
+footer h4{
+  color: #006600;  
 }
 @media only screen and (max-width: 479px) {
     .card_para_place,.card_para_county{
