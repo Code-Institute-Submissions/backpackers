@@ -33,25 +33,18 @@
     </div>
     </div>
     
-  <!--  <div class="row">-->
-  <!--  <div class="input-field col s12">-->
-  <!--  <select multiple name="things_todo">-->
-  <!--    <option value="" disabled selected>Choose things to do</option>-->
-  <!--    {% for t in todo %}-->
-  <!--    <option value="{{t.todo_name}}">{{t.todo_name}}</option>-->
-  <!--    {% endfor %}-->
-  <!--  </select>-->
-  <!--  <label>Select things to do in the Spot</label>-->
-  <!--</div>-->
-  <!--</div>-->
-    <!--<div class="row">-->
-    <!--<div class="input-field col s12">-->
-    <!--<label for="rating">Give a rating</label><br>-->
-    <!--<p class="range-field">-->
-    <!--  <input type="range" id="rating" name="rating" min="0" max="5" />-->
-    <!--</p>-->
-    <!--</div>-->
-    <!--</div>-->
+    <div class="row">
+    <div class="input-field col s12">
+    <select multiple name="things_todo">
+      <option value="" disabled selected>Choose things to do</option>
+      {% for t in todo %}
+      <option value="{{t.todo_name}}">{{t.todo_name}}</option>
+      {% endfor %}
+    </select>
+    <label>Select things to do in the Spot</label>
+  </div>
+  </div>
+    
    
    
    

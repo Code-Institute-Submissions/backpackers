@@ -42,7 +42,6 @@ main {
       
 body{
     background-color:#d9e6b2;
-   
     max-width: 100%;
     display: flex;
     min-height: 100vh;
@@ -69,12 +68,12 @@ nav{
 }
 #searchby_county {
     display: inline-block;
-    width: 50%;
+    width: 80%;
     height:35px;
 }
 .search_icon{
     display: inline-block;
-    width: 50%;
+    width: 20%;
     height:35px;
 }
 

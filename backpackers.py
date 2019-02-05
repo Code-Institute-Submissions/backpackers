@@ -6,7 +6,10 @@ from flask_mail import Message
 from bson.objectid import ObjectId
 from base64 import b64encode
 from werkzeug.datastructures import ImmutableMultiDict
+import re
 import base64
+
+
 app = Flask(__name__)
 
 
@@ -40,28 +43,34 @@ def find():
     if request.method=="POST":
 
         query_obj = {}
-        
+        things_list=[]
         
         if "spot_name" in request.form and request.form['spot_name'] != "":
-            query_obj["spot_name"] = {'$regex': request.form["spot_name"]}
+            query_obj["spot_name"] = {'$regex': re.compile(request.form["spot_name"], re.IGNORECASE)}
             
 
         if "spot_place" in request.form and request.form['spot_place'] != "":
-            query_obj["spot_place"] = {'$regex': request.form["spot_place"]}
+            query_obj["spot_place"] = {'$regex': re.compile(request.form["spot_place"],re.IGNORECASE)}
 
         if "county" in request.form:
             query_obj["county"] = request.form["county"]
             
-        if "rating" in request.form and request.form['rating'] != "":
-            query_obj["rating"] = request.form["rating"]
-        # if "things_todo" in request.form:
-        #     query_obj['things_todo'] = request.form.getlist('things_todo')
+        # if "rating" in request.form and request.form['rating'] != "":
+        #     query_obj["rating"] = request.form["rating"]
             
             
+        if "things_todo" in request.form:
+            things_list = request.form.getlist('things_todo')
             
-
+            
+        print(things_list)
+        
         # print(query_obj)
+        if things_list != []:
+            query_obj.update({"things_todo":{"$in":things_list}})
         tasks = mongo.db.spots.find(query_obj)
+        
+        tasks2 = mongo.db.spots.find({"things_todo":{"$in":things_list}})
         print(query_obj)
         print(tasks)
         

@@ -18,6 +18,7 @@
 </head>
 
 <body>
+    
     <header>
         <nav>
       
@@ -30,13 +31,14 @@
                     <li><a href="{{ url_for('home') }}">Home</a></li>
                     <li><a href="{{ url_for('add') }}">Add a Spot</a></li>
                     <li><a href="{{ url_for('find') }}">Find Spot</a></li>
+                    <li><a class="modal-trigger" href="#modal1">About</a></li>
                 </ul>
                
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
                     <li><a href="{{ url_for('add') }}">Add a Spot</a></li>
                     <li><a href="{{ url_for('find') }}">Find Spot</a></li>
-                    
+                    <li><a class="modal-trigger" href="#modal1">About</a></li>
                 </ul>
             </div>
         </nav>
@@ -44,7 +46,18 @@
     <main>
     <content>
 
-    
+    <!--<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>-->
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>About Backpackers</h4>
+      <p>This is an Application that helps to find interesting tourist spots in Ireland. Also you can share an experiance from a spot, add an image and also rate it. This application has an effective serching experiance, you can search by spot's name, place and county and also by the activities to do. </p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+    </div>
+  </div>
         {% block content %} {% endblock %}
     
     
@@ -80,6 +93,7 @@
             $('.collapsible').collapsible();
             $('select').material_select();
             $(".button-collapse").sideNav();
+            $('.modal').modal();
         });
     </script>
 
