@@ -27,7 +27,7 @@ I have greate interest in travelling and site seeing, the idea about this projec
 The project basically have 3 pages, Home page, Add a spot and find a spot. There is also About which is a model. And all these three are displayed in nav bar. This project use MongoDB for data storage. Also the stylings are done with Materialize.
 
 The Home page contains a search bar which is a select drop-down list with options to select a county name and a button. by selecting a county and pressing the button you can find spots from that county.
-The spots are displayed as card reveal, that is it displayed more details when you click on it. the card contain an image of the spot, its name, place name, county, an edit button in which displays an edit page in which we can edit the details about the spot. You can change an existing image and add another. On clicking the card 
+The spots are displayed as card reveal, that is it displayed more details when you click on it. the card contain an image of the spot, its name, place name, county, an edit button in which displays an edit page in which we can edit the details about the spot.The edit option is available only in Desktop and tablet, in mobile the edit button will not be displayed. You can change an existing image and add another. On clicking the card 
 more details about the spot can be viewed, activities that can be done in this spot will be shown.
 
 In Add a spot page you can add a spot, with its name, place name, county, you can give a discription about the spot, things to do in the spot can be added, you can add an image and also rate the spot as per your experience.
@@ -79,6 +79,7 @@ The feature has been tested and it is sending the email correctly.
 ### Deployment 
 
 The Backpackers application is deployed using Heroku and GitHub.
+
 
 ### Credits
 

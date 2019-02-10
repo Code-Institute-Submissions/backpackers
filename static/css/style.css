@@ -6,6 +6,7 @@
 #logo_id{
     margin-top:25px;
     font-size: 50px;
+    margin-left: 20px;
 }
 
 .nav-wrapper li a{
@@ -154,7 +155,7 @@ footer h4{
      font-size: 15px;
 }
 .card.medium {
-    height: 250px;
+    height: 320px;
 }
 #nav_img{
     width:90px;
@@ -169,7 +170,9 @@ footer h4{
     
 }
 @media only screen and (max-width: 479px) {
-    
+    .card.medium {
+    height: 250px;
+}
    
     nav{
         height: 150px;
@@ -181,7 +184,7 @@ footer h4{
         display: none;
     }
     .card .card-title{
-        font-size: 10px;
+        font-size: 20px;
     }
     .card .card-content i {
      line-height: 0px; 
