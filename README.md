@@ -35,6 +35,8 @@ All the fields in this page are required to add a spot, when you add a spot you 
 
 In Find a spot page you can search a spot by spot name, place name, by county and also by things to do. 
 
+
+
 Only Admin can delete a spot. No delete option is allowed in frontend.
 
 ### Features
@@ -62,7 +64,9 @@ All the links included in the website have been tested and they are all working.
 
 Hover effects on icons, links and cards have been tested and they all have a hover effect working as expected.
 
-+ Responsive The website have been tested in different viewports and it is responsve.
+#### Responsive 
+
+The website have been tested in different viewports and it is responsve.
 
 #### Data Base
 
@@ -85,6 +89,6 @@ The Backpackers application is deployed using Heroku and GitHub.
 
 ##### Media 
 
-All images and contents have been obtained through different seraches throug [Google](www.google.com) and [Wikipedia](https://en.wikipedia.org/wiki/English_Wikipedia).
+All images and contents have been obtained through different searches through [Google](www.google.com) and [Wikipedia](https://en.wikipedia.org/wiki/English_Wikipedia).
 
 
