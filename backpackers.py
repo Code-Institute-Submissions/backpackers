@@ -111,7 +111,7 @@ def add():
         msg = Message("Spot Adding",
                   sender="backpackerssite1@gmail.com",
                   recipients=[form_values["email"]])
-        msg.body="Thank you for adding the spot in backpackers site"
+        msg.body="Hi, Thank you for adding the spot in backpackers site. Regards, Backpackers Team"
         mail.send(msg)
     
         return redirect("/")

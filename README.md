@@ -80,6 +80,11 @@ MongoDB is used to store data, I had tested that the data is been storage in the
 
 The feature has been tested and it is sending the email correctly.
 
+
+##### Known Issues
+
+The email sending shows google authentication errors sometimes when adding, even though I have turn on less secure access. But spot will be added.
+
 ### Deployment 
 
 The Backpackers application is deployed using Heroku and GitHub.
